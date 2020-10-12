@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b996e271-4a91-4fa5-9d75-c47ddf942bed" name="Default Changelist" comment="" />
+    <list default="true" id="b996e271-4a91-4fa5-9d75-c47ddf942bed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boids/boid.go" beforeDir="false" afterPath="$PROJECT_DIR$/boids/boid.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +18,9 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
@@ -68,21 +74,36 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2040" y="342" width="562" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602460470998" />
-    <state width="1874" height="284" key="GridCell.Tab.0.bottom" timestamp="1602513196295">
+    <state x="1466" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1602546106617">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602513196295" />
-    <state width="1874" height="284" key="GridCell.Tab.0.center" timestamp="1602513196295">
+    <state x="1466" y="100" width="1720" height="880" key="DiffContextDialog/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602546106617" />
+    <state width="1874" height="284" key="GridCell.Tab.0.bottom" timestamp="1602546081473">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602513196295" />
-    <state width="1874" height="284" key="GridCell.Tab.0.left" timestamp="1602513196295">
+    <state width="1874" height="284" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602546081473" />
+    <state width="1874" height="284" key="GridCell.Tab.0.center" timestamp="1602546081473">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602513196295" />
-    <state width="1874" height="284" key="GridCell.Tab.0.right" timestamp="1602513196295">
+    <state width="1874" height="284" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602546081473" />
+    <state width="1874" height="284" key="GridCell.Tab.0.left" timestamp="1602546081473">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602513196295" />
+    <state width="1874" height="284" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602546081473" />
+    <state width="1874" height="284" key="GridCell.Tab.0.right" timestamp="1602546081473">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="284" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602546081473" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/boids/boid.go</url>
+          <line>95</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
