@@ -5,6 +5,7 @@ import (
 	"image/color"
 	"math"
 	"math/rand"
+	"sync"
 	"time"
 )
 
@@ -24,6 +25,7 @@ var (
 	Boids       [BoidCount]*Boid
 	actualColor = -1
 	boidMap     [ScreenWidth + 1][ScreenHeight + 1]int
+	lock        = sync.Mutex{}
 )
 
 func init() {
@@ -43,29 +45,35 @@ type Boid struct {
 
 func (b *Boid) calcAcceleration() Vector2D {
 	upper, lower := b.Position.AddV(viewRadius), b.Position.AddV(-viewRadius)
-	avgVelocity := Vector2D{0, 0}
+	avgPosition, avgVelocity := Vector2D{0, 0}, Vector2D{0, 0}
 	count := 0.0
+	lock.Lock()
 	for i := math.Max(lower.X, 0); i <= math.Min(upper.X, ScreenWidth); i++ {
 		for j := math.Max(lower.Y, 0); j <= math.Min(upper.Y, ScreenHeight); j++ {
 			if otherBoidId := boidMap[int(i)][int(j)]; otherBoidId != -1 && otherBoidId != b.Id {
 				if dist := Boids[otherBoidId].Position.Distance(b.Position); dist < viewRadius {
 					count++
 					avgVelocity = avgVelocity.Add(Boids[otherBoidId].Velocity)
+					avgPosition = avgPosition.Add(Boids[otherBoidId].Position)
 				}
 			}
 		}
 	}
-
-	accel := Vector2D{0,0}
+	lock.Unlock()
+	accel := Vector2D{0, 0}
 	if count > 0 {
-		avgVelocity =  avgVelocity.DivisionV(count)
-		accel = avgVelocity.Subtract(b.Velocity).MultiplyV(adjRate)
+		avgVelocity, avgPosition = avgVelocity.DivisionV(count), avgPosition.DivisionV(count)
+		accelAligment := avgVelocity.Subtract(b.Velocity).MultiplyV(adjRate)
+		accelCohesion := avgPosition.Subtract(b.Position).MultiplyV(adjRate)
+		accel = accel.Add(accelAligment).Add(accelCohesion)
 	}
 	return accel
 }
 
 func (b *Boid) MoveOne() {
-	b.Velocity = b.Velocity.Add(b.calcAcceleration()).Limit(-1, 1)
+	calcAcceleration := b.calcAcceleration()
+	lock.Lock()
+	b.Velocity = b.Velocity.Add(calcAcceleration).Limit(-1, 1)
 	boidMap[int(b.Position.X)][int(b.Position.Y)] = -1
 	b.Position = b.Position.Add(b.Velocity)
 	boidMap[int(b.Position.X)][int(b.Position.Y)] = b.Id
@@ -76,6 +84,7 @@ func (b *Boid) MoveOne() {
 	if next.Y >= ScreenHeight || next.Y < 0 {
 		b.Velocity = Vector2D{b.Velocity.X, -b.Velocity.Y}
 	}
+	lock.Unlock()
 }
 
 func (b *Boid) Start() {
